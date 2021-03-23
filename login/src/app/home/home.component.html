@@ -1,0 +1,11 @@
+<!-- login page -->
+
+<div class="login">
+    <div >User Name: <br>
+        <input type="text" [(ngModel)]="username"><br>
+        Password: <br>
+        <input type="password" [(ngModel)]="password">
+    </div><br>
+    <button routerLink="/dashboard"  >Login</button>
+    <p>Don't have an account?<a routerLink="/signin">signup</a></p>
+</div>
