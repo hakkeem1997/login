@@ -1,35 +1,19 @@
-<?php 
-    include('connection.php');
-    $request_body = file_get_contents('php://input');
-    $data = json_decode($request_body, true);
+<?php
 
-    $username = $data['username'];
-     $pasword = $data['pasword'];
-     $confirmpassword=$data['confirmpassword'];
-    
-    $sql = "INSERT INTO signup(username,pasword,confirmpassword) VALUES ('$username','$pasword','$confirmpassword')";
-    //  $sql = "INSERT INTO signup (pasword) VALUES ('$pasword')";
-    // $sql = "INSERT INTO signup (confirmpassword) VALUES ('$confirmpassword')";
-    $err = $conn->query($sql);
+ include('connection.php');
+ $request_body = file_get_contents('php://input');
+ $data = json_decode($request_body, true);
+ $username = $data['username'];
+ $password = $data['password'];
+//  $dup=mysqli_query($conn ,"select * from loc where username='$username'");
 
-    if (!$username) {
-        $resp = array(
-            'success' => false,
-            'message' => 'Invalid item name',
-            'name' => $username,
-            'data' => $data
-        );
-        echo json_encode($resp);  
-        exit;      
-    }
-    
-    
-    $resp = array(
-        'success' => true,
-        'message' => 'Added successfully!!',
-        'name' => $username,
-        'data' => $data
-    );
-    echo json_encode($resp);
+$check=mysqli_query($conn ,"select * from signup where username='$username'");
+if(mysqli_num_rows($check)>0)
+{
+   echo json_encode(true);
+} else {
+   echo json_encode(false);
+}
 
-?>
+ 
+ ?>

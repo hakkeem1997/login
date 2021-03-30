@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 //   echo "Error creating database: " . $conn->error;
 // }
 
-$sql = "CREATE TABLE loc (
+$sql = "CREATE TABLE signup (
 
 username VARCHAR(30) NOT NULL,
 pasword VARCHAR(30) NOT NULL

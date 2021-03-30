@@ -1,11 +1,14 @@
 <!-- login page -->
 
 <div class="login">
-    <div >User Name: <br>
-        <input type="text" [(ngModel)]="username"><br>
+    <div>User Name: <br>
+        <input type="text" [(ngModel)]="username" #un /><br>
+
         Password: <br>
-        <input type="password" [(ngModel)]="password">
+        <input type="password" [(ngModel)]="password" #pw/>
+
     </div><br>
-    <button routerLink="/dashboard"  >Login</button>
+    <button  (click)="check()" [disabled]=!username>Login</button>
     <p>Don't have an account?<a routerLink="/signin">signup</a></p>
+{{msg}}
 </div>

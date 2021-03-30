@@ -1,16 +1,23 @@
 <!-- sign in  -->
-<!-- <form> -->
+
 <div class="sign">
-    NAME: <br><input type="text" placeholder="enter a name" [(ngModel)]="username"><br>
-    <!-- <div ng-show="form.name.$dirty && form.name.$invalid"> -->
-    <!-- <p ng-show="form.name.$error.required">name field reuired </p> -->
+    NAME: <br><input type="text" placeholder="enter  with alphanumeric" [(ngModel)]="username" #name="ngModel" minlength="8" required /><br>
+    <div *ngIf="name.errors?.minlength">
+        name must be at least 8 character long
+    </div>
+   
 
-    <!-- </div> -->
+    Password: <br><input type="password" placeholder="text,number,char" [(ngModel)]="pasword" #password="ngModel" minlength="8"
+        required /><br>
+    <div *ngIf="password.errors?.minlength">
+        PASSWORD must be at least 8 characters long.
+    </div>
 
-    Password: <br><input type="password" placeholder="password" [(ngModel)]="pasword"><br>
-    Confirm Password: <br><input type="password" placeholder="confirmpassword" [(ngModel)]="confirmpassword"><br>
-    <button (click)="go()">Signup</button>
+
+
+    Confirm Password: <br><input type="password" placeholder="confirmpassword" [(ngModel)]="confirmPassword"><br>
+    <div>{{ passworderror}}</div>
+
+    <button (click)="go()" [disabled]="!username">signin</button>
     <button routerLink="/">goback</button>
 </div>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"  ></script> -->
-<!-- </form> -->

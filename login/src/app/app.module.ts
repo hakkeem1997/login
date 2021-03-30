@@ -7,22 +7,24 @@ import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { AdminGuard } from './admin.guard';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    
+
     DashboardComponent,
     HomeComponent,
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,FormsModule
+    AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
