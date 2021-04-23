@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title class="title">signup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <ion-item>
+      <ion-icon name="person" placeholder="Name">
+      </ion-icon>
+      <ion-input class="user" name="name" type="text" placeholder="Name_@..123" [(ngModel)]="username">ENTER A NAME:
+      </ion-input>
+    </ion-item>
+    {{alertname}}
+    {{namealreadyexist}}
+    <ion-item>
+      <ion-icon name="mail">
+      </ion-icon>
+      <ion-input class="usermail" mail="name" type="e-mail" placeholder="email@" [(ngModel)]="email">e-mail:
+      </ion-input>
+    </ion-item>
+    {{mailalert}}
+    <ion-item>
+      <ion-icon name="key">
+      </ion-icon>
+      <ion-input class="userpassword" name="name" type="password" placeholder="password" [(ngModel)]="password"
+        #pasword="ngModel" minlength="8">ENTER A
+        PASSWORD:
+      </ion-input>
+    </ion-item>
+    <ion-item *ngIf="pasword.errors?.minlength">
+      PASSWORD must be at least 8 characters long start with caps ,numbers and special cases allowed
+    </ion-item>
+
+    {{passwordalert}}
+    <ion-item>
+      <ion-icon name="key">
+      </ion-icon>
+      <ion-input class="userconfirmpassword" name="name" type="password" placeholder="confirmpassword"
+        [(ngModel)]="confirmpassword">confirm PASSWORD: </ion-input>
+    </ion-item>
+    {{passwordconfirmpassword}}
+    <ion-item>
+      <ion-button [disable]="!username" (click)="signup()" color="danger">signup</ion-button>
+      <ion-button (click)="home()" color="danger">home</ion-button>
+    </ion-item>
+    <ion-item>
+      {{ this.signupsuccess}} 
+    </ion-item>
+    <br>
+    
+  </div>
+  
+
+</ion-content>

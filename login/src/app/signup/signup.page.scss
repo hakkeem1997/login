@@ -1,0 +1,43 @@
+
+.user{
+    background-color:  rgb(241, 240, 237);
+    border-bottom: 1px solid #000;
+    max-width: 100%;
+}
+.usermail{
+    background-color: rgb(241, 240, 237);
+    border-bottom: 1px solid #000;
+    max-width: 100%;
+    
+}
+.userpassword{
+    background-color: rgb(241, 240, 237);
+    border-bottom: 1px solid #000;
+    max-width: 100%;
+}
+.userconfirmpassword{
+    background-color:  rgb(241, 240, 237);
+    border-bottom: 1px solid #000;
+    max-width: 100%;
+}
+.content{
+    max-width: 30%; 
+    position: relative;
+    left: 35%;
+    top: 5%;
+    text-align: center;
+    --ion-background-color:#ded6eb;
+}
+
+.title {
+    text-align: center;
+    color: rgb(121, 57, 224);
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bolder;
+    text-shadow: 1px 0 3px black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color:#ded6eb;
+    
+}
+

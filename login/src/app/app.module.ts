@@ -1,30 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
-import { AdminGuard } from './admin.guard';
-import { ReactiveFormsModule } from '@angular/forms';
+import { RouteReuseStrategy } from '@angular/router';
 
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignupComponent,
-
-    DashboardComponent,
-    HomeComponent,
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule
-  ],
-  providers: [AdminGuard],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy, }],
+  
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
